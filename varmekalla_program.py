@@ -89,15 +89,39 @@ class VarmesystemManager:
             return False
         
         print(f"✓ PDF-fil '{pdf_fil}' hittad")
-        print("  (PDF-parsing implementeras med PyPDF2/pdfplumber)")
         
-        # Här skulle PDF-parsing implementeras
-        # Exempel på vad som skulle extraheras:
-        # - Skala från ritning
-        # - Positioner för värmekällor och radiatorer
-        # - Tekniska specifikationer från ritning
-        
-        return True
+        # Försök importera och använda pdf_helper
+        try:
+            from pdf_helper import las_pdf_med_pdfplumber, las_pdf_med_pypdf2
+            
+            # Prova pdfplumber först, fallback till PyPDF2
+            data = las_pdf_med_pdfplumber(pdf_fil)
+            if not data:
+                data = las_pdf_med_pypdf2(pdf_fil)
+            
+            if data:
+                # Sätt skala om hittad
+                if data.get('skala'):
+                    self.satt_ritnings_skala(data['skala'])
+                
+                # Spara övriga parametrar
+                if data.get('parametrar'):
+                    self.ritnings_parametrar.update(data['parametrar'])
+                    print(f"✓ Extraherade parametrar: {list(data['parametrar'].keys())}")
+                
+                print("✓ PDF-parsing genomförd")
+                return True
+            else:
+                print("⚠ Kunde inte extrahera data från PDF")
+                return False
+                
+        except ImportError:
+            print("  (PDF-parsing kräver PyPDF2/pdfplumber)")
+            print("  Installera med: pip install PyPDF2 pdfplumber")
+            return False
+        except Exception as e:
+            print(f"⚠ Fel vid PDF-läsning: {e}")
+            return False
     
     def berakna_total_varmeeffekt(self) -> float:
         """Beräkna total värmeeffekt från alla värmekällor"""

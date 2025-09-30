@@ -1,0 +1,56 @@
+BYGGRITNING - VÄRMESYSTEM
+==========================
+
+Projekt: Exempelhus AB
+Datum: 2024-09-30
+Ritningsnummer: VVS-001
+
+SKALA 1:100
+
+VÄRMEKÄLLOR
+-----------
+
+1. Värmepump VP1
+   Position: (12.5, 8.3)
+   Effekt: 6.0 kW
+   Flöde: 600 m³/h
+   Temperatur: 50°C
+
+2. Luftvärmepump VP2
+   Position: (25.0, 15.2)
+   Effekt: 4.5 kW
+   Flöde: 450 m³/h
+   Temperatur: 45°C
+
+RADIATORER
+----------
+
+1. Radiator Vardagsrum R1
+   Position: (20.0, 12.0)
+   Effekt: 2500 W
+   Tilllopp: 70°C
+   Frånlopp: 50°C
+
+2. Radiator Sovrum R2
+   Position: (30.0, 20.0)
+   Effekt: 1800 W
+   Tilllopp: 70°C
+   Frånlopp: 50°C
+
+3. Radiator Kök R3
+   Position: (5.0, 10.0)
+   Effekt: 1200 W
+   Tilllopp: 70°C
+   Frånlopp: 50°C
+
+SAMMANFATTNING
+--------------
+Total värmeeffekt: 10.5 kW
+Total radiatoreffekt: 5.5 kW
+Effektbalans: +5.0 kW
+
+NOTERINGAR
+----------
+- Alla mått i millimeter
+- Skala 1:100
+- Koordinater från nedre vänstra hörnet
