@@ -1,0 +1,9 @@
+# Requirements för värmekällehanteringsprogram
+# Requirements for heat source management program
+
+# För PDF-läsning (valfritt - kan installeras vid behov)
+# PyPDF2>=3.0.0
+# pdfplumber>=0.10.0
+
+# Standard bibliotek används för grundfunktionalitet
+# json, os, dataclasses ingår i Python 3.7+
